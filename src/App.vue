@@ -57,11 +57,13 @@ export default {
   },
   created() {
     this.todoList = JSON.parse(localStorage.getItem(LS_KEY));
-    this.sort(false);
+    if (this.todoList) this.sort(false);
   },
   methods: {
     addTodo(newTodoObj) {
-      this.todoList = [...this.todoList, newTodoObj];
+      if (this.todoList) this.todoList = [...this.todoList, newTodoObj];
+      else this.todoList = [newTodoObj];
+
       this.sort(false);
     },
     clearList() {
