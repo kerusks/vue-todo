@@ -1,4 +1,4 @@
-# vue-todo
+# Experimental using Vue and Vuetify
 
 ## Project setup
 ```
@@ -15,12 +15,12 @@ yarn serve
 yarn build
 ```
 
-### Run your unit tests
+### Run your unit tests (TODO)
 ```
 yarn test:unit
 ```
 
-### Run your end-to-end tests
+### Run your end-to-end tests ((TODO))
 ```
 yarn test:e2e
 ```
@@ -30,5 +30,3 @@ yarn test:e2e
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
