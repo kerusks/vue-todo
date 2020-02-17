@@ -1,6 +1,6 @@
 # Experimental using Vue and Vuetify
 
-Demo: [http://wexsl.com/github/vue-todo/](http://wexsl.com/github/vue-todo/)
+Demo: [Vue - Todo](http://wexsl.com/github/vue-todo/)
 
 ![Image of Vue Todo App](vue-todo.png)
 ## Project setup
