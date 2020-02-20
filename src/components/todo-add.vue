@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <v-card-text>
-      <v-form @submit="addTodo">
+  <div data-app="true">
+    <v-card-text data-app>
+      <v-form @submit.prevent="addTodo">
         <v-text-field
           ref="addTodoForm"
           v-model="title"
@@ -11,20 +11,20 @@
           outlined
           clearable="clearable"
           hide-details=""
-          class="text-add"
+          id="input-add-todo"
           dense
           autofocus
         >
           <template v-slot:append>
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
-                <v-btn icon v-on="on">
+                <v-btn icon v-on="on" id="btn-priority">
                   <v-icon small color="grey darken-1">
                     fas fa-exclamation
                   </v-icon>
                 </v-btn>
               </template>
-              <v-list>
+              <v-list id="list-priority-dropdown">
                 <v-subheader>Priority</v-subheader>
                 <v-divider />
                 <v-list-item-group
@@ -34,6 +34,7 @@
                   <v-list-item
                     v-for="priority in priorities"
                     :key="priority.id"
+                    class="list-priority-item"
                   >
                     <v-list-item-title
                       @click="setFocus"
@@ -45,17 +46,21 @@
             </v-menu>
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
-                <v-btn icon v-on="on">
+                <v-btn icon v-on="on" id="btn-category">
                   <v-icon small color="grey darken-1">
                     fas fa-folder
                   </v-icon>
                 </v-btn>
               </template>
-              <v-list>
+              <v-list id="list-category-dropdown">
                 <v-subheader>Category</v-subheader>
                 <v-divider />
                 <v-list-item-group v-model="catId" active-class="blue--text">
-                  <v-list-item v-for="cat in categories" :key="cat.id">
+                  <v-list-item
+                    v-for="cat in categories"
+                    :key="cat.id"
+                    class="list-category-item"
+                  >
                     <v-list-item-title @click="setFocus" v-text="cat.name" />
                   </v-list-item>
                 </v-list-item-group>
@@ -69,11 +74,11 @@
               <v-icon small dense>
                 fas fa-exclamation
               </v-icon>
-              <span class="first">{{ getPriorityName }}</span>
+              <span class="first priority-message">{{ getPriorityName }}</span>
               <v-icon x-small>
                 fas fa-folder
               </v-icon>
-              <span>{{ getCategoryName }}</span>
+              <span class="first category-message">{{ getCategoryName }}</span>
             </v-sheet>
           </div>
         </template>
@@ -95,13 +100,8 @@ export default {
       title: "",
       catId: 0,
       priorityId: 0,
-      notifications: [
-        { id: 1, title: "Click Me" },
-        { id: 2, title: "Click Me" },
-        { id: 3, title: "Click Me" },
-        { id: 4, title: "Click Me 2" }
-      ],
-      todoTextFocused: false
+      todoTextFocused: false,
+      showMenu: false
     };
   },
   computed: {
@@ -134,6 +134,10 @@ export default {
     },
     setFocus() {
       this.$refs.addTodoForm.focus();
+    },
+    menuBtn() {
+      console.log("menu btn");
+      this.showMenu = true;
     }
   }
 };

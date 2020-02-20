@@ -1,7 +1,11 @@
 <template>
   <v-list-item :class="{ complete: todo.completed }">
     <v-list-item-action v-show="!editing">
-      <v-checkbox v-model="todo.completed" :class="cbPriorityClassName" />
+      <v-checkbox
+        v-model="todo.completed"
+        class="priority-checkbox"
+        :class="cbPriorityClassName"
+      />
     </v-list-item-action>
     <v-list-item-content>
       <v-list-item-title
@@ -18,6 +22,7 @@
         autofocus
         @blur="onBlur"
         @keyup.enter="onBlur"
+        class="input-edit-todo"
       />
       <v-list-item-subtitle v-show="!editing">
         {{ getCategoryName(todo.catId) }}
@@ -85,6 +90,7 @@ export default {
       text-decoration: line-through;
     }
   }
+
   .v-btn {
     opacity: 0;
   }
