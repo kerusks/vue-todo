@@ -1,4 +1,4 @@
-# Experimental using Vue and Vuetify
+# Experimental using Vue, Vuetify, Jest and Cypress
 
 Demo: [Vue - Todo](http://wexsl.com/github/vue-todo/)
 
