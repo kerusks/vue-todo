@@ -89,7 +89,7 @@ describe("Todo app", () => {
       .type("Edited with edit button{enter}");
   });
 
-  it("mark todo complete", () => {
+  it("delete a todo", () => {
     cy.get("#list-todo .btn-delete-item")
       .eq(4)
       .click();
