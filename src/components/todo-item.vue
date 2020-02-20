@@ -29,14 +29,14 @@
       </v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action v-show="!editing">
-      <v-btn icon @click="editTodo">
+      <v-btn icon @click="editTodo" class="btn-edit-item">
         <v-icon small color="grey darken-1">
           far fa-edit
         </v-icon>
       </v-btn>
     </v-list-item-action>
     <v-list-item-action v-show="!editing">
-      <v-btn icon @click="deleteTodo(todo)">
+      <v-btn icon @click="deleteTodo(todo)" class="btn-delete-item">
         <v-icon small color="grey darken-1">
           far fa-trash-alt
         </v-icon>

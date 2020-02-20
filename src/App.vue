@@ -10,10 +10,18 @@
         <TodoAdd @add-todo="addTodo" />
         <template>
           <div class="text-center">
-            <v-btn class="ma-2" small outlined color="indigo" @click="sort">
+            <v-btn
+              id="btn-sort-priority"
+              class="ma-2"
+              small
+              outlined
+              color="indigo"
+              @click="sort"
+            >
               Sort by priority
             </v-btn>
             <v-btn
+              id="btn-clear-all"
               class="ma-2"
               small
               outlined

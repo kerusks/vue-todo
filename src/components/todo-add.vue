@@ -106,10 +106,13 @@ export default {
   },
   computed: {
     getPriorityName() {
-      return this.priorities.find(x => x.id === this.priorityId).name;
+      const priorityId = this.priorityId || 0;
+      return this.priorities.find(x => x.id === priorityId).name;
     },
     getCategoryName() {
-      return this.categories.find(x => x.id === this.catId).name;
+      const catId = this.catId || 0;
+
+      return this.categories.find(x => x.id === catId).name;
     }
   },
   methods: {
@@ -118,8 +121,8 @@ export default {
       const newTodoObj = {
         id: uuid.v4(),
         title: this.title,
-        catId: this.catId,
-        priorityId: this.priorityId,
+        catId: this.catId || 0,
+        priorityId: this.priorityId || 0,
         dateCreated: Date.now(),
         completed: false
       };
@@ -136,7 +139,6 @@ export default {
       this.$refs.addTodoForm.focus();
     },
     menuBtn() {
-      console.log("menu btn");
       this.showMenu = true;
     }
   }
